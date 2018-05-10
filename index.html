@@ -6,11 +6,29 @@
 	</head>
 	<body>
 		<h3>pwa_test</h3>
+		<button id="btn">add to desktop</button>
 	</body>
 	<script>
-	      if('serviceWorker' in navigator){
-		      navigator.serviceWorker.register('/sw.js')
-	      }
+
+		window.onload=function(){
+			if('serviceWorker' in navigator){
+			navigator.serviceWorker.register('/sw.js');
+			}
+
+			var dfdPrompt=null;
+			var btn=document.getElementById('btn');
+			window.addEventListener('beforeInstallPrompt',function(e){
+			dfdPrompt=e;
+			e.preventDefalt();
+			return false
+			})
+			btn.addEventListener('click',function(){
+				if(dfdPrompt!==underfined){
+				dfdPrompt.prompt();
+				}
+			});
+
+		}
 
 	</script>
 </html>
