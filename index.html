@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>pwa_test</title>
+		<link rel="manifest" href="/manifest.json" >
+	</head>
+	<body>
+		<h3>pwa_test</h3>
+	</body>
+	<script>
+	      if('serviceWorker' in navigator){
+		      navigator.serviceWorker.register('/sw.js')
+	      }
+
+	</script>
+</html>
